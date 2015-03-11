@@ -1,5 +1,8 @@
-apply plugin: 'java'
-apply plugin: 'checkstyle'
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'net.saliman.cobertura' version '2.2.7'
+}
 
 sourceCompatibility = 1.5
 version = '1.0'
@@ -22,5 +25,9 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.2'
+    gradleVersion = '2.3'
+}
+
+checkstyle {
+    sourceSets = [sourceSets.main]
 }
